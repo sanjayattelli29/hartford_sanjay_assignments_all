@@ -148,7 +148,7 @@ AND duration_year > 5;
 SELECT COUNT(*) AS total_customers
 FROM insurance_customers;
 
-SELECT SUM(claim_amount) AS total_claim_amount
+SELECT SUM(claims_amount) AS total_claim_amount
 FROM claims;
 
 SELECT AVG(pre_amount) AS avg_premium
@@ -560,6 +560,161 @@ GROUP BY a.agent_name;
 
 
 
+select claim_id, claims_amount from claims
+where claims_amount in (select max(claims_amount) from claims)
 
+select max(claims_amount) from claims
+
+use insurance_db
+
+select distinct c.customer_id, c.first_name, c.last_name
+from insurance_customers c
+join policy_assignments pa on c.customer_id = pa.customer_id
+join policies p on pa.policy_id = p.policy_id
+where p.pre_amount > (
+    select avg(pre_amount)
+    from policies
+);
+
+
+select policy_id, policy_name, pre_amount 
+from policies
+where pre_amount = (
+    select max(pre_amount)
+    from policies
+);
+
+use insurance_db
+
+create table customer
+(
+	Customer_ID	INT,
+	CustomerName varchar(50),
+	city varchar(50)
+);
+
+create table product
+(
+	Product_id	INT,
+	ProductName varchar(50),
+	price int
+);
+
+create table orders
+(
+	orderID int,
+	CustomerID int,
+	productid int,
+	quantity int
+);
+
+
+INSERT INTO Customer VALUES
+(1, 'Amit', 'Delhi'),
+(2, 'Neha', 'Mumbai'),
+(3, 'Rohit', 'Pune'),
+(4, 'Karan', 'Delhi');
+
+INSERT INTO Product VALUES
+(101, 'Laptop', 40000),
+(102, 'Mobile', 15000),
+(103, 'Headphones', 3000),
+(104, 'Keyboard', 2000);
+
+INSERT INTO Orders VALUES
+(1, 1, 103, 2),
+(2, 1, 104, 1),
+(3, 2, 102, 1),
+(4, 2, 103, 2),
+(5, 3, 104, 2),
+(6, 4, 101, 1);
+
+SELECT
+    c.Customer_ID,
+    c.CustomerName,
+    SUM(p.Price * o.Quantity) AS TotalPurchase
+FROM Customer c
+JOIN Orders o
+    ON c.Customer_ID = o.CustomerID
+JOIN Product p
+    ON p.Product_ID = o.ProductID
+GROUP BY
+    c.Customer_ID,
+    c.CustomerName;
+
+SELECT
+    c.Customer_ID,
+    c.CustomerName,
+    SUM(p.Price * o.Quantity) AS TotalPurchase,
+    CASE
+        WHEN SUM(p.Price * o.Quantity) < 10000 THEN 'Regular'
+        WHEN SUM(p.Price * o.Quantity) BETWEEN 10000 AND 25000 THEN 'Silver'
+        ELSE 'Gold'
+    END AS CustomerCategory
+FROM Customer c
+JOIN Orders o
+    ON c.Customer_ID = o.CustomerID
+JOIN Product p
+    ON o.ProductID = p.Product_ID
+GROUP BY
+    c.Customer_ID,
+    c.CustomerName;
+
+use test
+USE insurance_db;
+
+CREATE TABLE Customer_Staging
+(
+    Customer_ID INT,
+    CustomerName VARCHAR(50),
+    City VARCHAR(50)
+);
+INSERT INTO Customer_Staging VALUES
+(2, 'Neha', 'Pune'),        -- existing customer (will UPDATE)
+(3, 'Rohit', 'Pune'),       -- existing customer (same data)
+(5, 'Meenal Shah', 'Ahmedabad');  -- new customer (will INSERT)
+
+MERGE Customer AS T
+USING Customer_Staging AS S
+ON T.Customer_ID = S.Customer_ID
+
+WHEN MATCHED THEN
+    UPDATE SET
+        T.CustomerName = S.CustomerName,
+        T.City = S.City
+
+WHEN NOT MATCHED BY TARGET THEN
+    INSERT (Customer_ID, CustomerName, City)
+    VALUES (S.Customer_ID, S.CustomerName, S.City)
+
+WHEN NOT MATCHED BY SOURCE THEN
+    DELETE;
+
+SELECT * FROM Customer;
+SELECT * FROM Customer_Staging;
+
+SELECT
+    CASE
+        WHEN GROUPING(c.CustomerName) = 1 THEN 'All Customers'
+        ELSE c.CustomerName
+    END AS Customer,
+
+    CASE
+        WHEN GROUPING(p.ProductName) = 1 THEN 'All Products'
+        ELSE p.ProductName
+    END AS Product,
+
+    SUM(p.Price * o.Quantity) AS TotalAmount
+FROM Customer c
+JOIN Orders o
+    ON c.Customer_ID = o.CustomerID
+JOIN Product p
+    ON o.ProductID = p.Product_ID
+GROUP BY ROLLUP (c.CustomerName, p.ProductName)
+ORDER BY
+    GROUPING(c.CustomerName),
+    c.CustomerName,
+    GROUPING(p.ProductName),
+    p.ProductName;
 
 
