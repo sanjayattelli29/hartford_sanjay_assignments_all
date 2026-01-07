@@ -1,0 +1,90 @@
+Project Scenario 
+You are hired as a Frontend Trainee to build a responsive website for an insurance company named: 
+Har ord India Insurance 
+The site should promote insurance plans, company trust, and allow users to contact the company. 
+SECTIONS TO BUILD 
+1. Header & Naviga on 
+Requirements: 
+ Company logo text: Har ord India 
+ Naviga on menu: 
+o Home 
+o Plans 
+o About 
+o Contact 
+ Use Flexbox 
+ S cky header (bonus) 
+2. Hero Sec on (Trust Focused) 
+Content: 
+ Heading: “Protec ng Your Life & Future” 
+ Short paragraph 
+ Bu on: View Plans 
+CSS Rules: 
+ Full width sec on 
+ Center text ver cally & horizontally 
+ Background color or gradient 
+3.  Insurance Plans Sec on (CARDS WITH IMAGES) 
+Create 4 insurance plan cards: 
+Plan 
+Life Insurance 
+Descrip on 
+Financial protec on for family 
+Health Insurance 
+Medical coverage 
+Vehicle Insurance 
+Car & bike protec on 
+Home Insurance 
+Secure your property 
+Each card must contain: 
+ Image 
+ Plan tle 
+ Short descrip on 
+ “Learn More” bu on 
+ Use Flexbox 
+ Equal height cards 
+ Hover effect (li / shadow) 
+4. Why Choose Us (Features Sec on) 
+Create 3 feature boxes: 
+ 25+ Years Experience 
+ Trusted by 1M+ Customers 
+ 24×7 Claim Support 
+ Use Flexbox 
+ Icons or images allowed 
+5. About Insurance Company 
+Layout: 
+ Le → Image 
+ Right → Text 
+Text Sample: 
+Har ord India Insurance has been serving customers with trust and transparency for over 25 
+years. 
+ Two-column layout 
+ Stack on mobile 
+6. Sta s cs Sec on 
+Display 4 sta s cs: 
+ 1M+ Customers 
+ 500+ Branches 
+ 98% Claim Se lement 
+ 25+ Years Experience 
+ Center aligned 
+ Light background 
+ Equal width boxes 
+7.  Contact / Insurance Enquiry Form 
+Form Fields: 
+ Full Name 
+ Email 
+ Phone Number 
+ Insurance Type (dropdown) 
+ Message 
+ Submit Bu on 
+Inputs full width 
+Proper labels 
+Spacing using padding & margin 
+8.  Footer 
+ Company copyright 
+ Disclaimer text 
+ Dark background 
+RESPONSIVE RULES (MANDATORY) 
+For screens below 768px: 
+✔ Naviga on → ver cal 
+✔ Cards → 1 column 
+✔ About sec on → column 
+✔ Reduce padding 
