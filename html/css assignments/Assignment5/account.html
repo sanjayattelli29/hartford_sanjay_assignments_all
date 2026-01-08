@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - EditPro</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body
+    class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen selection:bg-indigo-500 selection:text-white">
+    <!-- Navbar -->
+    <nav
+        class="fixed w-full z-50 top-0 start-0 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 h-16 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                <div
+                    class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                    E</div>
+                <span>Edit<span class="text-indigo-600">Pro</span></span>
+            </a>
+
+            <!-- Mobile Menu Toggle (Checkbox Hack) -->
+            <input type="checkbox" id="mobile-menu-toggle" class="peer hidden">
+            <label for="mobile-menu-toggle"
+                class="md:hidden text-2xl cursor-pointer text-slate-600 hover:text-indigo-600 transition-colors">
+                ☰
+            </label>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-indigo-600 transition-colors">Home</a>
+                <a href="account.html" class="text-indigo-600 hover:text-indigo-700 transition-colors">Account</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden md:block">
+                <a href="index.html" class="text-slate-500 hover:text-slate-800 font-medium text-sm transition-colors">
+                    Sign Out
+                </a>
+            </div>
+
+            <!-- Mobile Menu Panel (Pure CSS) -->
+            <div
+                class="absolute top-16 left-0 w-full bg-white border-b border-slate-200 shadow-lg p-6 flex flex-col space-y-4 md:hidden opacity-0 invisible -translate-y-2 peer-checked:opacity-100 peer-checked:visible peer-checked:translate-y-0 transition-all duration-300 ease-out">
+                <a href="index.html"
+                    class="block text-slate-600 font-medium hover:bg-slate-50 px-4 py-2 rounded-lg transition-colors">Home</a>
+                <a href="products.html"
+                    class="block text-slate-600 font-medium hover:bg-slate-50 px-4 py-2 rounded-lg transition-colors">Products</a>
+                <a href="account.html"
+                    class="block text-indigo-600 font-semibold bg-indigo-50 px-4 py-2 rounded-lg">Account</a>
+                <div class="pt-4 border-t border-slate-100">
+                    <a href="index.html"
+                        class="block w-full text-center bg-slate-100 text-slate-600 px-5 py-3 rounded-xl font-semibold hover:bg-slate-200 transition-colors">Sign
+                        Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 py-12 pt-28 flex-grow">
+        <h1 class="text-3xl font-bold text-slate-900 mb-8 border-b border-slate-200 pb-4">My Dashboard</h1>
+
+        <div class="flex flex-col md:flex-row gap-8 lg:gap-12">
+            <!-- Profile Info -->
+            <aside class="w-full md:w-1/3 lg:w-1/4">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 sticky top-24">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-full mb-4 mx-auto flex items-center justify-center text-white text-2xl font-bold shadow-md ring-4 ring-indigo-50">
+                        JD
+                    </div>
+                    <h2 class="text-xl font-bold text-center text-slate-900 mb-1">John Doe</h2>
+                    <p class="text-slate-500 text-sm text-center mb-6">attellisanjay29@gmail.com</p>
+
+                    <div class="space-y-4 border-t border-slate-100 pt-6">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-500">Member Since</span>
+                            <span class="font-semibold text-slate-900">Jan 2026</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-500">Total Orders</span>
+                            <span class="font-semibold text-slate-900">3</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-500">Total Spent</span>
+                            <span class="font-semibold text-slate-900 text-green-600">₹72.00</span>
+                        </div>
+                    </div>
+
+                    <a href="index.html"
+                        class="mt-8 flex items-center justify-center w-full py-2.5 px-4 border border-slate-200 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-red-600 transition-colors duration-200 group">
+                        <span class="group-hover:translate-x-1 transition-transform">Sign Out Explain</span>
+                    </a>
+                </div>
+            </aside>
+
+            <!-- Order History -->
+            <main class="w-full md:w-2/3 lg:w-3/4">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    Recent Orders
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-0.5 rounded-full">3</span>
+                </h2>
+
+                <div class="space-y-4">
+                    <!-- Order Item 1 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-indigo-100 hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start sm:items-center gap-4">
+                            <div
+                                class="w-16 h-16 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center text-slate-300 text-xs font-bold">
+                                IMG</div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Cinematic Pack Vol. 1</h3>
+                                <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-2 items-center">
+                                    <span>Order #8492</span>
+                                    <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+                                    <span>Jan 05, 2026</span>
+                                    <span
+                                        class="bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full text-[10px] uppercase">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 w-full sm:w-auto justify-between sm:justify-end">
+                            <span class="font-bold text-slate-900">₹29.00</span>
+                            <button
+                                class="text-indigo-600 bg-indigo-50 hover:bg-indigo-100 font-semibold text-xs px-4 py-2 rounded-lg transition-colors">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Order Item 2 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-indigo-100 hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start sm:items-center gap-4">
+                            <div
+                                class="w-16 h-16 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center text-slate-300 text-xs font-bold">
+                                IMG</div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Glitch Effects Bundle</h3>
+                                <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-2 items-center">
+                                    <span>Order #8103</span>
+                                    <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+                                    <span>Dec 28, 2025</span>
+                                    <span
+                                        class="bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full text-[10px] uppercase">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 w-full sm:w-auto justify-between sm:justify-end">
+                            <span class="font-bold text-slate-900">₹19.00</span>
+                            <button
+                                class="text-indigo-600 bg-indigo-50 hover:bg-indigo-100 font-semibold text-xs px-4 py-2 rounded-lg transition-colors">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Order Item 3 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-indigo-100 hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start sm:items-center gap-4">
+                            <div
+                                class="w-16 h-16 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center text-slate-300 text-xs font-bold">
+                                IMG</div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Typography Titles</h3>
+                                <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-2 items-center">
+                                    <span>Order #7821</span>
+                                    <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+                                    <span>Dec 15, 2025</span>
+                                    <span
+                                        class="bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full text-[10px] uppercase">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 w-full sm:w-auto justify-between sm:justify-end">
+                            <span class="font-bold text-slate-900">₹24.00</span>
+                            <button
+                                class="text-indigo-600 bg-indigo-50 hover:bg-indigo-100 font-semibold text-xs px-4 py-2 rounded-lg transition-colors">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 mt-auto">
+        <div class="container mx-auto px-6 text-center text-sm text-slate-400">
+            <p>2026 EditPro Templates. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
