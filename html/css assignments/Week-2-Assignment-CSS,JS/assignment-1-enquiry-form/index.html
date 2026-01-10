@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Enquiry & Feedback</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#75013f',
+                            light: '#fe3082',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-md py-4 border-b-4 border-brand-dark">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold text-brand-dark tracking-wide">Hartford Insurance</h1>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12 flex items-center justify-center">
+        <section class="w-full max-w-2xl bg-white p-10 rounded-2xl shadow-2xl transform transition hover:scale-[1.002]">
+            <div class="mb-8 text-center">
+                <h2 class="text-3xl font-extrabold text-brand-dark mb-3">Insurance Enquiry & Feedback</h2>
+                <div class="h-1 w-20 bg-brand-light mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600">We value your input. Please fill out the form below for enquiries or feedback.
+                </p>
+            </div>
+
+            <form id="enquiryForm" class="space-y-6" novalidate>
+
+                <div>
+                    <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
+                            class="text-brand-light">*</span></label>
+                    <input type="text" id="fullName" name="fullName"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-brand-light outline-none transition bg-gray-50 hover:bg-white"
+                        placeholder="John Doe">
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address <span
+                            class="text-brand-light">*</span></label>
+                    <input type="email" id="email" name="email"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-brand-light outline-none transition bg-gray-50 hover:bg-white"
+                        placeholder="john@example.com">
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+
+                <div>
+                    <label for="mobile" class="block text-sm font-semibold text-gray-700 mb-2">Mobile Number <span
+                            class="text-brand-light">*</span></label>
+                    <input type="tel" id="mobile" name="mobile"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-brand-light outline-none transition bg-gray-50 hover:bg-white"
+                        placeholder="9876543210" maxlength="10">
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="requestType" class="block text-sm font-semibold text-gray-700 mb-2">Request Type
+                            <span class="text-brand-light">*</span></label>
+                        <select id="requestType" name="requestType"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-brand-light outline-none transition bg-gray-50 hover:bg-white">
+                            <option value="">Select a request type</option>
+                            <option value="enquiry">Policy Enquiry</option>
+                            <option value="claim">Claim Related</option>
+                            <option value="feedback">Feedback</option>
+                        </select>
+                        <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label for="policyType" class="block text-sm font-semibold text-gray-700 mb-2">Policy Type <span
+                                class="text-brand-light">*</span></label>
+                        <select id="policyType" name="policyType"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-brand-light outline-none transition bg-gray-50 hover:bg-white">
+                            <option value="">Select a policy type</option>
+                            <option value="health">Health Insurance</option>
+                            <option value="life">Life Insurance</option>
+                            <option value="vehicle">Vehicle Insurance</option>
+                            <option value="home">Home Insurance</option>
+                        </select>
+                        <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message <span
+                            class="text-brand-light">*</span></label>
+                    <textarea id="message" name="message" rows="4"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-brand-light outline-none transition bg-gray-50 hover:bg-white"
+                        placeholder="Please describe your enquiry or feedback (min 10 chars)..."></textarea>
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Experience Rating <span
+                            class="text-brand-light">*</span></label>
+                    <div class="flex items-center space-x-6 mt-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                        <label class="flex items-center space-x-2 cursor-pointer group">
+                            <input type="radio" name="rating" value="1" class="text-brand-dark focus:ring-brand-light">
+                            <span
+                                class="text-sm font-medium text-gray-600 group-hover:text-brand-dark transition">1</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer group">
+                            <input type="radio" name="rating" value="2" class="text-brand-dark focus:ring-brand-light">
+                            <span
+                                class="text-sm font-medium text-gray-600 group-hover:text-brand-dark transition">2</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer group">
+                            <input type="radio" name="rating" value="3" class="text-brand-dark focus:ring-brand-light">
+                            <span
+                                class="text-sm font-medium text-gray-600 group-hover:text-brand-dark transition">3</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer group">
+                            <input type="radio" name="rating" value="4" class="text-brand-dark focus:ring-brand-light">
+                            <span
+                                class="text-sm font-medium text-gray-600 group-hover:text-brand-dark transition">4</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer group">
+                            <input type="radio" name="rating" value="5" class="text-brand-dark focus:ring-brand-light">
+                            <span
+                                class="text-sm font-medium text-gray-600 group-hover:text-brand-dark transition">5</span>
+                        </label>
+                    </div>
+                    <p id="rating-error" class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-brand-dark to-brand-light text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg hover:opacity-95 transform transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-brand-light/30">
+                        Submit Enquiry
+                    </button>
+                    <p id="success-message"
+                        class="text-green-600 text-sm font-bold text-center mt-4 hidden bg-green-50 py-2 rounded-md border border-green-200">
+                        Success! Your enquiry has been submitted.
+                    </p>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 py-6">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            2026 Hartford Insurance. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
