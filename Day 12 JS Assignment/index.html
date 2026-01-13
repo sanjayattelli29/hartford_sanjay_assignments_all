@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insurance Portal</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightgray;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            border: none;
+        }
+        
+        .filter-btn {
+            background-color: gray;
+        }
+        
+        .filter-btn.active {
+            background-color: orange;
+        }
+        
+        .policies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .policy {
+            border: 1px solid black;
+            padding: 10px;
+            width: 280px;
+        }
+        
+        .policy h3 {
+            margin-top: 0;
+        }
+        
+        .status {
+            padding: 2px 5px;
+            font-size: 11px;
+        }
+        
+        .active-status {
+            background: green;
+            color: white;
+        }
+        
+        .inactive-status {
+            background: red;
+            color: white;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: gray;
+        }
+        
+        .discount-price {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Insurance Portal</h1>
+
+        <div>
+            <button onclick="loadPolicies()">Load Policies</button>
+            <button onclick="calculateTotal()">Calculate Total</button>
+            <button onclick="applyDiscount()">Apply Discount</button>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <b>Filter: </b>
+            <button class="filter-btn active" onclick="filterPolicies('all')">All</button>
+            <button class="filter-btn" onclick="filterPolicies('Health')">Health</button>
+            <button class="filter-btn" onclick="filterPolicies('Life')">Life</button>
+            <button class="filter-btn" onclick="filterPolicies('Vehicle')">Vehicle</button>
+        </div>
+
+        <div id="policies" class="policies"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
