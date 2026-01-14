@@ -1,0 +1,37 @@
+<!--TASK-1-->
+<form id="userForm" onsubmit="return validate()">
+<button type="submit">Submit</button>
+<!--TASK-2-->
+color: blue;
+<!--TASK-3-->
+document.getElementById("btn").onclick = function ()
+<!--TASK_4-->
+if (age >= 18) 
+<!--TASK-5-->
+let email = document.getElementById("email").value;
+<!--TASK-6-->
+width: 300px;
+<!--TASK-7-->
+let confirmPwd = "admin123";
+<!--TASK-8-->
+display: none;
+<!--TASK-9-->
+console.log("End");
+<!--TASK-10-->
+let terms = document.getElementById("terms");
+<!--TASK-11-->
+if (mobile.length === 10) 
+<!--TASK-12-->
+let name = document.getElementById("policyName").value;
+<!--TASK-13-->
+if (plan === "Select Plan") 
+<!--TASK-14-->
+document.getElementById("policy").innerHTML = policyNumber;
+<!--TASK-15-->
+if (!isNaN(claimAmount)) 
+<!--TASK-16-->
+if (policyType.toLowerCase() === "health") {
+<!--TASK-17-->
+document.getElementById("list").innerHTML += `<li>${policy}</li>`;
+<!--TASK_18-->
+if (isNaN(premium)) 
