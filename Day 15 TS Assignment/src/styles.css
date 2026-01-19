@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #800000;
+  
+  --secondary-color: #f2f2f2;
+  
+  --text-color: #333333;
+  
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  
+  background-color: #faf9f7;
+  
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+@import "tailwindcss";

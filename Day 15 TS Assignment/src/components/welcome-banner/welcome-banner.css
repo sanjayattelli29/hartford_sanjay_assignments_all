@@ -1,0 +1,25 @@
+.banner {
+    background-color: transparent;
+    padding: 1rem 1rem;
+    text-align: center;
+}
+
+.banner-top-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.headline {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+.subheadline {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #444;
+}

@@ -1,0 +1,148 @@
+.profiles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.cards-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 140px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.active {
+    border: 2px solid var(--primary-color);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.card-label {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.icon-group {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: #555;
+}
+
+.plus {
+    font-size: 1.2rem;
+    color: #999;
+}
+
+.bundle-badge {
+    position: absolute;
+    top: -8px;
+    background-color: #f0f0f0;
+    color: #666;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.radio-circle {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+.check-mark {
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: absolute;
+    bottom: -10px;
+}
+
+.quote-section {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.drivers-count {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.quote-input-group {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.zip-input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+    width: 150px;
+}
+
+.start-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    background-color: #5a0000;
+}
+
+.retrieve-quote {
+    margin-top: 20px;
+}
+
+.retrieve-quote a {
+    color: #005580;
+    text-decoration: none;
+    font-weight: 600;
+}

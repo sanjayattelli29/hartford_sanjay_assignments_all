@@ -1,0 +1,118 @@
+.footer {
+    background-color: #faf9f7;
+    padding: 3rem 2rem;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+.column h3 {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column li {
+    margin-bottom: 0.5rem;
+}
+
+.column a {
+    text-decoration: none;
+    color: #444;
+}
+
+.column a:hover {
+    text-decoration: underline;
+}
+
+.account-column p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.login-btn {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #5a0000;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo-section {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-logo-text {
+    font-family: serif;
+    color: #5a0000
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.legal-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.legal-links a {
+    text-decoration: none;
+    color: #666;
+}

@@ -1,0 +1,79 @@
+<div class="profiles-container">
+    <div class="cards-row">
+        
+        <div class="card" [class.active]="activeCard === 'auto'" (click)="selectCard('auto')">
+            <div class="card-content">
+                <ng-icon name="heroTruck" size="2rem" class="card-icon"></ng-icon>
+                <span class="card-label">Auto</span>
+            </div>
+            @if (activeCard === 'auto') {
+            <div class="check-mark">
+                <ng-icon name="heroCheck" size="0.8rem"></ng-icon>
+            </div>
+            } @else {
+            <div class="radio-circle"></div>
+            }
+        </div>
+
+        
+        <div class="card" [class.active]="activeCard === 'bundle'" (click)="selectCard('bundle')">
+            <span class="bundle-badge">Bundle & Save</span>
+            <div class="card-content">
+                <div class="icon-group">
+                    <ng-icon name="heroTruck" size="1.5rem"></ng-icon>
+                    <span class="plus">+</span>
+                    <ng-icon name="heroHome" size="1.5rem"></ng-icon>
+                </div>
+                <span class="card-label">Auto + Home</span>
+            </div>
+            @if (activeCard === 'bundle') {
+            <div class="check-mark">
+                <ng-icon name="heroCheck" size="0.8rem"></ng-icon>
+            </div>
+            } @else {
+            <div class="radio-circle"></div>
+            }
+        </div>
+
+        
+        <div class="card" [class.active]="activeCard === 'home'" (click)="selectCard('home')">
+            <div class="card-content">
+                <ng-icon name="heroHome" size="2rem" class="card-icon"></ng-icon>
+                <span class="card-label">Home</span>
+            </div>
+            @if (activeCard === 'home') {
+            <div class="check-mark">
+                <ng-icon name="heroCheck" size="0.8rem"></ng-icon>
+            </div>
+            } @else {
+            <div class="radio-circle"></div>
+            }
+        </div>
+
+        
+        <div class="card" [class.active]="activeCard === 'business'" (click)="selectCard('business')">
+            <div class="card-content">
+                <ng-icon name="heroBriefcase" size="2rem" class="card-icon"></ng-icon>
+                <span class="card-label">Business</span>
+            </div>
+            @if (activeCard === 'business') {
+            <div class="check-mark">
+                <ng-icon name="heroCheck" size="0.8rem"></ng-icon>
+            </div>
+            } @else {
+            <div class="radio-circle"></div>
+            }
+        </div>
+    </div>
+
+    <div class="quote-section">
+        <p class="drivers-count"><strong>55,000+</strong> drivers started a quote in the last week</p>
+        <div class="quote-input-group">
+            <input type="text" placeholder="Zip Code" class="zip-input">
+            <button class="start-btn">Start Quote</button>
+        </div>
+        <div class="retrieve-quote">
+            <a href="#">Retrieve a Saved Quote</a>
+        </div>
+    </div>
+</div>
