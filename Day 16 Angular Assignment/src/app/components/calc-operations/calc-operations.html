@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+
+        <h2>Calculator</h2>
+
+        <input type="number" [(ngModel)]="num1" placeholder="Enter number 1">
+        <input type="number" [(ngModel)]="num2" placeholder="Enter number 2">
+
+        <div class="btn-group">
+            <button (click)="add()">Add</button>
+            <button (click)="subtract()">Subtract</button>
+            <button (click)="multiply()">Multiply</button>
+            <button (click)="divide()">Divide</button>
+        </div>
+
+        <p class="result">Result: {{ result }}</p>
+
+    </div>
+</div>

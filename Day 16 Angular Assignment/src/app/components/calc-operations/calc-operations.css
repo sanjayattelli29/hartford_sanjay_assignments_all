@@ -1,0 +1,50 @@
+.container {
+    height: 50;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 2px solid #7a0026;
+    border-radius: 10px;
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #7a0026;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #7a0026;
+    border-radius: 5px;
+}
+
+.btn-group button {
+    background-color: #7a0026;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-group button:hover {
+    background-color: #5a001d;
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #7a0026;
+    font-size: 18px;
+}

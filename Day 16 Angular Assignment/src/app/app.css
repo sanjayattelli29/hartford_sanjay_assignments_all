@@ -1,0 +1,12 @@
+.assignments-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.assignment-box {
+    width: 500px;
+    text-align: center;
+}

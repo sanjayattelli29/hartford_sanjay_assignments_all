@@ -1,0 +1,135 @@
+/* Container */
+
+.crud-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Header */
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #5c0a0a;
+}
+
+
+/* Layout */
+
+.main-content {
+    display: flex;
+    gap: 30px;
+}
+
+
+/* Form Section */
+
+.form-section {
+    width: 300px;
+    border: 1px solid #5c0a0a;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.form-section h2 {
+    margin-bottom: 15px;
+    color: #5c0a0a;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+
+/* Buttons */
+
+.button-group {
+    margin-top: 15px;
+}
+
+.btn-primary {
+    background: #5c0a0a;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #ccc;
+    padding: 6px 12px;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: #7d1212;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background: #ffffff;
+    color: #5c0a0a;
+    border: 1px solid #5c0a0a;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+
+/* Table Section */
+
+.table-section {
+    flex: 1;
+}
+
+.table-section h2 {
+    margin-bottom: 10px;
+    color: #5c0a0a;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background: #5c0a0a;
+    color: white;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.data-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.data-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.total {
+    margin-top: 10px;
+    font-weight: bold;
+}

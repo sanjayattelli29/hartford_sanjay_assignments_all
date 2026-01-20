@@ -1,6 +1,6 @@
 <div class="profiles-container">
     <div class="cards-row">
-        
+
         <div class="card" [class.active]="activeCard === 'auto'" (click)="selectCard('auto')">
             <div class="card-content">
                 <ng-icon name="heroTruck" size="2rem" class="card-icon"></ng-icon>
@@ -15,7 +15,7 @@
             }
         </div>
 
-        
+
         <div class="card" [class.active]="activeCard === 'bundle'" (click)="selectCard('bundle')">
             <span class="bundle-badge">Bundle & Save</span>
             <div class="card-content">
@@ -35,7 +35,7 @@
             }
         </div>
 
-        
+
         <div class="card" [class.active]="activeCard === 'home'" (click)="selectCard('home')">
             <div class="card-content">
                 <ng-icon name="heroHome" size="2rem" class="card-icon"></ng-icon>
@@ -50,7 +50,7 @@
             }
         </div>
 
-        
+
         <div class="card" [class.active]="activeCard === 'business'" (click)="selectCard('business')">
             <div class="card-content">
                 <ng-icon name="heroBriefcase" size="2rem" class="card-icon"></ng-icon>

@@ -1,0 +1,53 @@
+<h2>Angular Lifecycle Hooks Demo</h2>
+
+<table cellpadding="10" border="1" width="100%">
+    <tr>
+        <th>No</th>
+        <th>Lifecycle </th>
+        <th>Desc</th>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>ngOnInit</td>
+        <td>Called once after component initialization</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>ngOnChanges</td>
+        <td>Called when input change.</td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>ngOnDestroy</td>
+        <td>Called before component is destroyed</td>
+    </tr>
+</table>
+
+<br><br>
+
+<table cellpadding="10" border="1" width="100%">
+    <tr>
+        <th colspan="2">Interactive Counter</th>
+    </tr>
+
+    <tr>
+        <td>Current Counter Value</td>
+        <td><strong>{{ counter }}</strong></td>
+    </tr>
+
+    <tr>
+        <td>
+            <button (click)="incrementCounter()">Increment</button>
+            <button (click)="resetCounter()">Reset</button>
+            <button (click)="clearLogs()">Clear Logs</button>
+        </td>
+        <td>
+            {{ componentInitialized ? 'Component Initialized' : 'Initializing...' }}
+        </td>
+    </tr>
+</table>
+
+<br><br>

@@ -1,0 +1,32 @@
+<div class="container mt-3">
+    <div class="card-grid">
+
+        @for (emp of employees; track emp.id) {
+        <div class="emp-card">
+
+            <img [src]="emp.photoPath" class="emp-img">
+
+            <div class="emp-body">
+                <h4 class="emp-title">{{ emp.name }}</h4>
+                <p>Gender: {{ emp.gender }}</p>
+                <p>Department: {{ emp.department }}</p>
+                <p>Phone Number: {{ emp.phoneNumber }}</p>
+                <p>Email: {{ emp.email }}</p>
+
+
+
+
+
+
+
+
+
+                <p>DOB: {{ emp.dateOfBirth }}</p>
+                <p>Active: {{ emp.isActive }}</p>
+            </div>
+
+        </div>
+        }
+
+    </div>
+</div>

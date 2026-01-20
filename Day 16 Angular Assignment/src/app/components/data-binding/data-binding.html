@@ -1,0 +1,29 @@
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Interpolation (Read-only)</th>
+        <th>Two-Way Binding (Dynamic)</th>
+        <th>Property Binding (Read-only)</th>
+        <th>Current Date</th>
+    </tr>
+    <tr>
+        <td>
+            <span>{{courseName}}</span>
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="rollNo" placeholder="Type to change dynamically">
+        </td>
+
+        <td>
+            <input type="text" [value]="rollNo" placeholder="Property Binding (can't edit)">
+        </td>
+
+        <td>
+            {{currentDate }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <strong>Current Roll No Value:</strong> {{rollNo}}
+        </td>
+    </tr>
+</table>
