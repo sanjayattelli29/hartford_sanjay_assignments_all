@@ -1,0 +1,89 @@
+<div class="card">
+    <h2 class="section-title">Angular Pipes Demo</h2>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Pipe</th>
+                <th>What it does</th>
+                <th>Before</th>
+                <th>After</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Uppercase</strong></td>
+                <td>Text to ALL CAPS</td>
+                <td>{{ title }}</td>
+                <td>{{ title | uppercase }}</td>
+            </tr>
+            <tr>
+                <td><strong>Lowercase</strong></td>
+                <td>Text to small letters</td>
+                <td>{{ title }}</td>
+                <td>{{ title | lowercase }}</td>
+            </tr>
+            <tr>
+                <td><strong>Titlecase</strong></td>
+                <td>First letters capital</td>
+                <td>{{ mobile }}</td>
+                <td>{{ mobile | titlecase }}</td>
+            </tr>
+
+            <tr>
+                <td><strong>Currency (INR)</strong></td>
+                <td>Money in ₹</td>
+                <td>{{ amount }}</td>
+                <td>{{ amount | currency:'INR' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Date (Short)</strong></td>
+                <td>Short date</td>
+                <td>{{ today }}</td>
+                <td>{{ today | date:'shortDate' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Date (Full)</strong></td>
+                <td>Full date text</td>
+                <td>{{ today }}</td>
+                <td>{{ today | date:'fullDate' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Percent</strong></td>
+                <td>Number to %</td>
+                <td>{{ percentVal }}</td>
+                <td>{{ percentVal | percent:'1.2-2' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Slice</strong></td>
+                <td>Cut first 20 chars</td>
+                <td>{{ longText }}</td>
+                <td>{{ longText | slice:0:20 }}...</td>
+            </tr>
+            <tr>
+                <td><strong>JSON</strong></td>
+                <td>Object to text</td>
+                <td>{{ user() | json }}</td>
+                <td>
+                    <pre style="margin:0; font-size:0.8em;">{{ user() | json }}</pre>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="grid-2">
+    <div class="card">
+        <h2 class="section-title">Slice Example</h2>
+        <p><strong>Full Text:</strong> {{ longText }}</p>
+        <hr>
+        <p><strong>From 20th char:</strong> ...{{ longText | slice:20 }}</p>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title">Custom Pipe: TrimText</h2>
+        <p><strong>Full Text:</strong> {{ longText }}</p>
+        <hr>
+        <p><strong>First 5 chars:</strong> {{ longText | trimText }}...</p>
+    </div>
+</div>

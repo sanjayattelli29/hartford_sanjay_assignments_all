@@ -1,0 +1,44 @@
+<div class="card">
+    <h2 class="section-title">Lifecycle Hooks (Top 5)</h2>
+    <p>Demonstrating: <code>ngOnInit</code>, <code>ngOnChanges</code>, <code>ngDoCheck</code>,
+        <code>ngAfterViewInit</code>, <code>ngOnDestroy</code></p>
+</div>
+
+<div class="grid-2">
+    <div class="card">
+        <h3 class="section-title">Increment Button +1 </h3>
+
+        <div style="margin-bottom: 20px; padding: 15px; background: #eef2f5; border-radius: 5px;">
+            <p style="font-size: 1.2rem; margin-top: 0;">Current Count: <strong
+                    style="color: var(--primary-color); font-size: 1.5rem;">{{ count }}</strong></p>
+            <div style="display: flex; gap: 10px;">
+                <button (click)="increment()">Trigger Change Detection</button>
+            </div>
+
+        </div>
+
+        <h3 class="section-title">Status</h3>
+        <div style="padding: 10px; border-left: 4px solid var(--secondary-color); background: #f9f9f9;">
+            {{ status }}
+        </div>
+    </div>
+
+    <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 class="section-title" style="margin-bottom: 0;">Lifecycle Logs</h3>
+            <button (click)="clearLogs()" style="padding: 5px 10px; font-size: 0.8rem; background-color: #666;">Clear
+                Logs</button>
+        </div>
+
+        <div
+            style="height: 300px; overflow-y: auto; border: 1px solid #e0e0e0; padding: 10px; background: #fafafa; border-radius: 4px;">
+            <div *ngFor="let log of logs; let i = index"
+                style="padding: 5px 0; border-bottom: 1px solid #eee; font-family: monospace;">
+                <span style="color: var(--secondary-color); font-weight: bold;">[{{ i + 1 }}]</span> {{ log }}
+            </div>
+            <div *ngIf="logs.length === 0" style="color: #999; text-align: center; padding: 20px;">
+                No logs
+            </div>
+        </div>
+    </div>
+</div>

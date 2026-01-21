@@ -1,0 +1,104 @@
+<div class="grid-2">
+    <div class="card">
+        <h2 class="section-title">Reactive Forms Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="handleProfile()" novalidate>
+
+            <div class="form-group">
+                <label for="name" class="label-text">Name</label>
+                <input type="text" id="name" formControlName="name" placeholder="Enter your full name">
+
+                @if(name?.invalid && (name?.dirty || name?.touched)) {
+                <div class="error-container">
+                    @if(name?.hasError('required')) { <span class="error">Name is required</span> }
+                    @if(name?.hasError('minlength')) { <span class="error">Name must be at least 3 characters</span> }
+                    @if(name?.hasError('maxlength')) { <span class="error">Name cannot exceed 20 characters</span> }
+                </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="label-text">Email Address</label>
+                <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+
+                @if(email?.invalid && (email?.dirty || email?.touched)) {
+                <div class="error-container">
+                    @if(email?.hasError('required')) { <span class="error">Email is required</span> }
+                    @if(email?.hasError('email')) { <span class="error">Please enter a valid email address</span> }
+                    @if(email?.hasError('maxlength')) { <span class="error">Email cannot exceed 40 characters</span> }
+                </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="label-text">Password</label>
+                <input type="password" id="password" formControlName="password" placeholder="Create a password">
+
+                @if(password?.invalid && (password?.dirty || password?.touched)) {
+                <div class="error-container">
+                    @if(password?.hasError('required')) { <span class="error">Password is required</span> }
+                    @if(password?.hasError('minlength')) { <span class="error">Password must be at least 8
+                        characters</span> }
+                    @if(password?.hasError('maxlength')) { <span class="error">Password cannot exceed 16
+                        characters</span> }
+                </div>
+                }
+            </div>
+
+            <div class="actions" style="margin-top: 20px;">
+                <button type="submit" [disabled]="loginForm.invalid">Sign In</button>
+                <button type="button" (click)="reset()" style="background-color: #666; margin-left: 10px;">Reset
+                    Form</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title">Live Data Preview</h2>
+
+        <div *ngIf="loginForm.dirty || loginForm.touched; else noData">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Current Value</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ loginForm.value.name || '---' }}</td>
+                        <td [style.color]="name?.valid ? 'green' : 'red'">{{ name?.valid ? 'Valid' : 'Invalid' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ loginForm.value.email || '---' }}</td>
+                        <td [style.color]="email?.valid ? 'green' : 'red'">{{ email?.valid ? 'Valid' : 'Invalid' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>{{ loginForm.value.password ? 'masked (' + loginForm.value.password.length + ' chars)' :
+                            '---' }}</td>
+                        <td [style.color]="password?.valid ? 'green' : 'red'">{{ password?.valid ? 'Valid' : 'Invalid'
+                            }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 20px; padding: 15px; background: #eef2f5; border-radius: 5px;">
+                <strong>Form Status:</strong>
+                <span [style.color]="loginForm.valid ? 'green' : 'red'" style="font-weight: bold; margin-left: 5px;">
+                    {{ loginForm.valid ? 'VALID' : 'INVALID' }}
+                </span>
+                <p style="margin: 5px 0 0; font-size: 0.9em; color: #555;">Complete the form correctly to enable the
+                    submit button.</p>
+            </div>
+        </div>
+
+        <ng-template #noData>
+            <div style="text-align: center; padding: 40px; color: #999;">
+                <p>Start typing in the form to see live updates here.</p>
+            </div>
+        </ng-template>
+    </div>
+</div>

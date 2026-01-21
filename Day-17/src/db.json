@@ -1,0 +1,96 @@
+{
+  "policyHolder": {
+    "id": "PH1001",
+    "firstName": "Ravi",
+    "lastName": "Kumar",
+    "dateOfBirth": "1992-08-15",
+    "gender": "Male",
+    "phone": "+91-9876543210",
+    "email": "ravi.kumar@example.com",
+    "address": {
+      "street": "12-3-45, MG Road",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pincode": "500081",
+      "country": "India"
+    }
+  },
+
+  "policyDetails": {
+    "policyNumber": "POL-2026-789456",
+    "policyType": "Vehicle Insurance",
+    "provider": "SafeLife Insurance",
+    "startDate": "2025-01-01",
+    "endDate": "2026-01-01",
+    "status": "Active",
+    "premiumAmount": 12000,
+    "coverageAmount": 500000,
+    "nominee": {
+      "name": "Sita Kumar",
+      "relation": "Spouse",
+      "phone": "+91-9123456789"
+    }
+  },
+
+  "vehicleDetails": {
+    "vehicleId": "VH2009",
+    "vehicleType": "Car",
+    "brand": "Hyundai",
+    "model": "Creta",
+    "registrationNumber": "TS09AB1234",
+    "manufacturingYear": 2022,
+    "engineNumber": "ENG987654321",
+    "chassisNumber": "CHS123456789",
+    "fuelType": "Petrol"
+  },
+
+  "paymentHistory": [
+    {
+      "paymentId": "PAY001",
+      "date": "2025-01-01",
+      "amount": 6000,
+      "mode": "UPI",
+      "status": "Success",
+      "transactionRef": "TXN123456789"
+    },
+    {
+      "paymentId": "PAY002",
+      "date": "2025-07-01",
+      "amount": 6000,
+      "mode": "Credit Card",
+      "status": "Pending",
+      "transactionRef": "TXN987654321"
+    }
+  ],
+
+  "claims": [
+    {
+      "claimId": "CLM3001",
+      "claimDate": "2025-09-10",
+      "claimType": "Accident",
+      "description": "Front bumper damaged due to minor accident",
+      "claimAmount": 35000,
+      "status": "Approved",
+      "approvedAmount": 30000,
+      "documents": [
+        {
+          "documentId": "DOC01",
+          "type": "FIR Copy",
+          "url": "https://example.com/docs/fir-copy.pdf"
+        },
+        {
+          "documentId": "DOC02",
+          "type": "Repair Estimate",
+          "url": "https://example.com/docs/repair-estimate.pdf"
+        }
+      ]
+    }
+  ],
+
+  "auditInfo": {
+    "createdBy": "system",
+    "createdOn": "2025-01-01T10:15:30Z",
+    "lastUpdatedBy": "admin",
+    "lastUpdatedOn": "2025-07-01T09:45:00Z"
+  }
+}

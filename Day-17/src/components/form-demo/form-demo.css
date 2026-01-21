@@ -1,0 +1,19 @@
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.error-container {
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.actions {
+    margin-top: 20px;
+}
