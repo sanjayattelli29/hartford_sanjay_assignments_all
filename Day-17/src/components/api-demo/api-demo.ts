@@ -54,10 +54,7 @@ export class ApiDemo implements OnInit {
                     this.posts.update(currentPosts =>
                         currentPosts.map(p => p.id === post.id ? result : p)
                     );
-                    // Since the API is mocked and might not return the updated object exactly as we sent it for PUT,
-                    // specifically jsonplaceholder often just returns the ID 101 or similar for updates if creating,
-                    // but for PUT it usually mocks correctly.
-                    // However, to ensure the UI updates for this demo even if the mock doesn't persist:
+                  
                     this.posts.update(currentPosts =>
                         currentPosts.map(p => p.id === post.id ? updatedPost : p)
                     );
