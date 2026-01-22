@@ -1,0 +1,69 @@
+<div class="user-management-container">
+    <div class="header-full">
+        <h1>User Management</h1>
+        <button class="btn btn-load" (click)="fetchUsers()">Load Data</button>
+    </div>
+
+    <div class="split-view">
+        <!-- Left Side: Add/Edit Form -->
+        <div class="left-panel">
+            <div class="form-card">
+                <h2>{{ isEditing ? 'Edit User' : 'Add New User' }}</h2>
+                <form (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" [(ngModel)]="userForm.name" name="name" required
+                            placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" [(ngModel)]="userForm.username" name="username" required
+                            placeholder="Enter Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" [(ngModel)]="userForm.email" name="email" required
+                            placeholder="Enter Email">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Add' }}</button>
+                        <button type="button" class="btn btn-secondary" *ngIf="isEditing"
+                            (click)="resetForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Side: User List -->
+        <div class="right-panel">
+            <div class="list-card">
+                <h2>User List</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users">
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>
+                                    <button class="btn btn-edit" (click)="editUser(user)">Edit</button>
+                                    <button class="btn btn-delete" (click)="deleteUser(user.id)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
