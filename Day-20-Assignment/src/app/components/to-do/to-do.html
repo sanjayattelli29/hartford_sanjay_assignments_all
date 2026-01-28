@@ -1,0 +1,30 @@
+<main class="todo-wrapper">
+
+  <!-- LEFT SIDE -->
+  <section class="left-panel">
+    <h2>Add Task</h2>
+
+    <input [formControl]="taskControl" placeholder="Enter your task" />
+    <button (click)="addTask()">Add Task</button>
+  </section>
+
+  <!-- RIGHT SIDE -->
+  <section class="right-panel">
+    <h2>Task List</h2>
+
+    <ul>
+      <li *ngFor="let todo of todoList">
+        <input type="checkbox"
+               [checked]="todo.completed"
+               (change)="toggleDone(todo)" />
+
+        <span [class.done]="todo.completed">
+          {{ todo.task }}
+        </span>
+
+        <button class="delete" (click)="deleteTask(todo.id)">X</button>
+      </li>
+    </ul>
+  </section>
+
+</main>

@@ -1,0 +1,17 @@
+:host {
+    display: block;
+}
+
+.app-container {
+    display: flex;
+}
+
+.content-area {
+    margin-left: 250px;
+    /* Width of sidebar */
+    flex-grow: 1;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}

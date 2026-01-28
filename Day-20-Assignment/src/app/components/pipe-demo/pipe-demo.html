@@ -1,0 +1,48 @@
+<div class="order-container">
+    <h2>E-commerce Order Management System</h2>
+
+    <div class="form-section">
+        <h3>Add New Order</h3>
+        <form class="order-form">
+            <div class="form-group">
+                <label>Order ID:</label>
+                <input type="number" [(ngModel)]="newOrder.id" name="orderId" />
+            </div>
+
+            <div class="form-group">
+                <label>Status:</label>
+                <select [(ngModel)]="newOrder.status" name="status">
+                    <option *ngFor="let status of statusOptions" [value]="status">
+                        {{ status | orderStatus }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" [(ngModel)]="newOrder.username" name="username" placeholder="Enter username" />
+            </div>
+
+            <button type="button" (click)="addOrder()" class="add-btn">Add Order</button>
+        </form>
+    </div>
+
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Username</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{ order.id }}</td>
+                <td>{{ order.username }}</td>
+                <td [ngClass]="order.status">
+                    {{ order.status | orderStatus }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

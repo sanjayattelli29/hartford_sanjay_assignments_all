@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "name": "Admin User"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "be62",
+      "userId": "1",
+      "token": "p22xdtym11rmkxxeqqs",
+      "createdAt": "2026-01-28T11:12:35.812Z"
+    }
+  ]
+}
