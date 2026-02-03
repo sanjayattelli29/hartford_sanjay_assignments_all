@@ -29,27 +29,34 @@
 
             SuspendLayout();
 
-            // Title
+            // lblTitle
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblTitle.Location = new Point(110, 20);
+            lblTitle.Location = new Point(120, 20);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(160, 25);
             lblTitle.Text = "Get Age of a Person";
 
-            // DOB Label
+            // lblDOB
             lblDOB.AutoSize = true;
             lblDOB.Location = new Point(60, 80);
+            lblDOB.Name = "lblDOB";
+            lblDOB.Size = new Size(76, 20);
             lblDOB.Text = "Enter DOB";
 
-            // DateTimePicker
+            // dtpDOB
             dtpDOB.Location = new Point(160, 77);
+            dtpDOB.Name = "dtpDOB";
             dtpDOB.Size = new Size(200, 27);
 
-            // Age Label
+            // lblAge
             lblAge.AutoSize = true;
             lblAge.Location = new Point(60, 130);
+            lblAge.Name = "lblAge";
+            lblAge.Size = new Size(66, 20);
             lblAge.Text = "Your Age";
 
-            // Form
+            // Form1
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(420, 200);
@@ -57,6 +64,7 @@
             Controls.Add(lblDOB);
             Controls.Add(dtpDOB);
             Controls.Add(lblAge);
+            Name = "Form1";
             Text = "Get Age of a Person";
             ResumeLayout(false);
             PerformLayout();

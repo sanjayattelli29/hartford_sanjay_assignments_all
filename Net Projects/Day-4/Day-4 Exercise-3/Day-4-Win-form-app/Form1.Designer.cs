@@ -4,17 +4,20 @@
     {
         private System.ComponentModel.IContainer components = null;
 
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblFatherName;
-        private System.Windows.Forms.Label lblDOB;
-        private System.Windows.Forms.Label lblPreference;
-
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox txtFatherName;
-        private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.ComboBox cmbPreference;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lblState;
+        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.TextBox txtState;
+        private System.Windows.Forms.CheckBox chkPostal;
+        private System.Windows.Forms.CheckBox chkEmail;
+        private System.Windows.Forms.RadioButton rdoMale;
+        private System.Windows.Forms.RadioButton rdoFemale;
+        private System.Windows.Forms.ListView listViewCountry;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnRemoveCountry;
+        private System.Windows.Forms.Button btnRemoveState;
+        private System.Windows.Forms.Button btnShowDetails;
 
         protected override void Dispose(bool disposing)
         {
@@ -29,90 +32,92 @@
 
         private void InitializeComponent()
         {
-            lblTitle = new Label();
-            lblFirstName = new Label();
-            lblFatherName = new Label();
-            lblDOB = new Label();
-            lblPreference = new Label();
-
-            txtFirstName = new TextBox();
-            txtFatherName = new TextBox();
-            dtpDOB = new DateTimePicker();
-            cmbPreference = new ComboBox();
-            btnSubmit = new Button();
+            lblCountry = new Label();
+            lblState = new Label();
+            txtCountry = new TextBox();
+            txtState = new TextBox();
+            chkPostal = new CheckBox();
+            chkEmail = new CheckBox();
+            rdoMale = new RadioButton();
+            rdoFemale = new RadioButton();
+            listViewCountry = new ListView();
+            comboBox1 = new ComboBox();
+            btnAdd = new Button();
+            btnRemoveCountry = new Button();
+            btnRemoveState = new Button();
+            btnShowDetails = new Button();
 
             SuspendLayout();
 
-            // Title
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTitle.Location = new Point(140, 20);
-            lblTitle.Text = "Person Details";
+            lblCountry.Location = new Point(40, 40);
+            lblCountry.Size = new Size(60, 20);
+            lblCountry.Text = "Country";
 
-            // First Name Label
-            lblFirstName.AutoSize = true;
-            lblFirstName.Location = new Point(50, 70);
-            lblFirstName.Text = "Person Name";
+            txtCountry.Location = new Point(120, 37);
+            txtCountry.Size = new Size(220, 27);
 
-            // First Name TextBox
-            txtFirstName.Location = new Point(180, 67);
-            txtFirstName.Size = new Size(200, 27);
+            lblState.Location = new Point(40, 85);
+            lblState.Size = new Size(60, 20);
+            lblState.Text = "State";
 
-            // Father Name Label
-            lblFatherName.AutoSize = true;
-            lblFatherName.Location = new Point(50, 110);
-            lblFatherName.Text = "Father's Name";
+            txtState.Location = new Point(120, 82);
+            txtState.Size = new Size(220, 27);
 
-            // Father Name TextBox
-            txtFatherName.Location = new Point(180, 107);
-            txtFatherName.Size = new Size(200, 27);
+            chkPostal.Location = new Point(40, 130);
+            chkPostal.Text = "Postal Mail";
 
-            // DOB Label
-            lblDOB.AutoSize = true;
-            lblDOB.Location = new Point(50, 150);
-            lblDOB.Text = "Date Of Birth";
+            chkEmail.Location = new Point(40, 160);
+            chkEmail.Text = "E-Mail";
 
-            // DateTimePicker
-            dtpDOB.Location = new Point(180, 147);
-            dtpDOB.Size = new Size(200, 27);
+            rdoMale.Location = new Point(200, 130);
+            rdoMale.Text = "Male";
 
-            // Preference Label
-            lblPreference.AutoSize = true;
-            lblPreference.Location = new Point(50, 190);
-            lblPreference.Text = "Preferences";
+            rdoFemale.Location = new Point(200, 160);
+            rdoFemale.Text = "Female";
 
-            // ComboBox
-            cmbPreference.Location = new Point(180, 187);
-            cmbPreference.Size = new Size(200, 28);
-            cmbPreference.Items.AddRange(new object[]
-            {
-                "Investments",
-                "Technology",
-                "Sports",
-                "Music",
-                "Travel"
-            });
+            listViewCountry.Location = new Point(380, 37);
+            listViewCountry.Size = new Size(200, 150);
+            listViewCountry.CheckBoxes = true;
+            listViewCountry.View = View.Details;
+            listViewCountry.Columns.Add("Country", 150);
 
-            // Submit Button
-            btnSubmit.Location = new Point(220, 235);
-            btnSubmit.Size = new Size(94, 30);
-            btnSubmit.Text = "Submit";
+            comboBox1.Location = new Point(380, 200);
+            comboBox1.Size = new Size(200, 28);
 
-            // Form
+            btnAdd.Location = new Point(40, 220);
+            btnAdd.Size = new Size(90, 30);
+            btnAdd.Text = "Add";
+
+            btnRemoveCountry.Location = new Point(140, 220);
+            btnRemoveCountry.Size = new Size(130, 30);
+            btnRemoveCountry.Text = "Remove Country";
+
+            btnRemoveState.Location = new Point(280, 220);
+            btnRemoveState.Size = new Size(120, 30);
+            btnRemoveState.Text = "Remove State";
+
+            btnShowDetails.Location = new Point(410, 220);
+            btnShowDetails.Size = new Size(120, 30);
+            btnShowDetails.Text = "Show Details";
+
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(450, 300);
-            Controls.Add(lblTitle);
-            Controls.Add(lblFirstName);
-            Controls.Add(txtFirstName);
-            Controls.Add(lblFatherName);
-            Controls.Add(txtFatherName);
-            Controls.Add(lblDOB);
-            Controls.Add(dtpDOB);
-            Controls.Add(lblPreference);
-            Controls.Add(cmbPreference);
-            Controls.Add(btnSubmit);
-            Text = "Person Details";
+            ClientSize = new Size(620, 280);
+            Controls.Add(lblCountry);
+            Controls.Add(txtCountry);
+            Controls.Add(lblState);
+            Controls.Add(txtState);
+            Controls.Add(chkPostal);
+            Controls.Add(chkEmail);
+            Controls.Add(rdoMale);
+            Controls.Add(rdoFemale);
+            Controls.Add(listViewCountry);
+            Controls.Add(comboBox1);
+            Controls.Add(btnAdd);
+            Controls.Add(btnRemoveCountry);
+            Controls.Add(btnRemoveState);
+            Controls.Add(btnShowDetails);
+            Text = "Country Info";
             ResumeLayout(false);
             PerformLayout();
         }
