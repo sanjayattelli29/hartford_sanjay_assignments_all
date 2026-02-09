@@ -44,6 +44,7 @@ namespace Requirement_4
             set { _ticket = value; }
         }
 
+        // constructor that fills all vehicle details when you pass them in
         public Vehicle(string registrationNo, string name , string type , double weight, Ticket ticket)
         {
             _registrationNo = registrationNo;
@@ -56,14 +57,17 @@ namespace Requirement_4
         public Vehicle()
         { }
 
+        // split comma separated input and build vehicle object from pieces
         public static Vehicle CreateVehicle(string detail)
         {
             string[] data = detail.Split(',');
+            // last 3 pieces make the ticket
             Ticket ticket = new Ticket(
                 data[4].Trim(),
                 DateTime.ParseExact(data[5].Trim(), "dd-MM-yyyy HH:mm:ss", null),
                 double.Parse(data[6].Trim())
                 );
+            // first 4 pieces plus ticket make complete vehicle
             return new Vehicle(
                 data[0].Trim(),
                 data[1].Trim(),
@@ -73,6 +77,7 @@ namespace Requirement_4
                 );
         }
 
+        // formats vehicle data into columns when printing
         public override string ToString()
         {
             return string.Format("{0,-15} {1,-10} {2,-12} {3,-7} {4}",

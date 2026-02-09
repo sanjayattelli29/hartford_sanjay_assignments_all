@@ -25,6 +25,7 @@ namespace Requirement_5
             set { _cost = value; }
         }
 
+        // constructor stores all ticket info when parking happens
         public Ticket(string ticketNo, DateTime parkedTime, double cost)
         {
             _ticketNo = ticketNo;

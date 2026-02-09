@@ -42,12 +42,14 @@ namespace Requirement_6
             _weight = weight;
         }
 
+        // parse input string and make vehicle object from it
         public static Vehicle CreateVehicle(string detail)
         {
             try
             {
                 string[] data = detail.Split(',');
 
+                // create vehicle from the 4 comma separated values
                 return new Vehicle(
                     data[0].Trim(),
                     data[1].Trim(),
@@ -57,11 +59,13 @@ namespace Requirement_6
             }
             catch (Exception)
             {
+                // if parsing fails just return nothing
                 Console.WriteLine("Invalid vehicle input");
                 return null;
             }
         }
 
+        // counts how many of each vehicle type exists
         public static SortedDictionary<string, int>
             TypeWiseCount(List<Vehicle> vehicleList)
         {
@@ -70,12 +74,15 @@ namespace Requirement_6
                 SortedDictionary<string, int> result =
                     new SortedDictionary<string, int>();
 
+                // loop through vehicles adding them to dictionary by type
                 foreach (Vehicle v in vehicleList)
                 {
+                    // if type not seen before add it with count zero
                     if (!result.ContainsKey(v.Type))
                     {
                         result[v.Type] = 0;
                     }
+                    // bump up the count for this type
                     result[v.Type]++;
                 }
                 return result;

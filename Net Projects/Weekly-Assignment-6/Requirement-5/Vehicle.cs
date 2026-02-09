@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Requirement_5
 {
+    // implements IComparable so we can sort vehicles by weight
     class Vehicle : IComparable<Vehicle>
     {
         private string _registrationNo;
@@ -52,10 +53,12 @@ namespace Requirement_5
 
         public Vehicle() { }
 
+        // breaks apart comma separated string into vehicle parts
         public static Vehicle CreateVehicle(string detail)
         {
             string[] data = detail.Split(',');
 
+            // make ticket from pieces 4,5,6
             Ticket ticket = new Ticket(
                 data[4].Trim(),
                 DateTime.ParseExact(data[5].Trim(), "dd-MM-yyyy HH:mm:ss", null),
@@ -71,6 +74,7 @@ namespace Requirement_5
             );
         }
 
+        // compares this vehicle weight to another for sorting
         public int CompareTo(Vehicle other)
         {
             return this.Weight.CompareTo(other.Weight);

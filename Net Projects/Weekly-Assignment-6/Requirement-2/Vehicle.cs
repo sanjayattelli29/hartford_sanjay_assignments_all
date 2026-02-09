@@ -15,7 +15,6 @@ namespace Requirement_2
             get { return _registrationNo; }
             set { _registrationNo = value; }
         }
-
         private string _name;
         public string Name
         {
@@ -43,9 +42,11 @@ namespace Requirement_2
             get { return _ticket; }
             set { _ticket = value; }
         }
-
+        //Default Constructor
         public Vehicle() { }
 
+        // this one takes all the vehicle info and puts it in the right spots
+        //Parametrized Constructor
         public Vehicle(string registrationNo, string name, string type, double weight, Ticket ticket)
         {
             _registrationNo = registrationNo;
@@ -55,9 +56,12 @@ namespace Requirement_2
             _ticket = ticket;
         }
         
+        // takes comma separated string and splits it up to make a vehicle
         public static Vehicle CreateVehicle(string detail)
         {
+            // split by comma so we get each piece of info separate
             string[] data = detail.Split(',');
+            // pieces 4,5,6 make the ticket object
             Ticket ticket = new Ticket(
                 data[4].Trim(),
                 DateTime.ParseExact(
@@ -65,6 +69,7 @@ namespace Requirement_2
                     "dd-MM-yyyy HH:mm:ss", null),
                      double.Parse(data[6].Trim())
                 );
+            // pieces 0,1,2,3 plus the ticket we just made completes the vehicle
             return new Vehicle(
                 data[0].Trim(),
                 data[1].Trim(),
@@ -73,9 +78,11 @@ namespace Requirement_2
                 ticket
                 );
         }
+            // this makes vehicle look nice when you print it, lined up columns
+            public override string ToString() {
 
-        public override string ToString() {
             return string.Format("{0,-15} {1,-10} {2,-12} {3,-7} {4}", RegistrationNo, Name, Type, Weight.ToString("F1"), Ticket.TicketNo);
+
         }
     }
 }

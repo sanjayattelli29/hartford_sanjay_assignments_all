@@ -31,6 +31,7 @@ namespace Requirement_4
 
         public Ticket() { }
 
+        // saves ticket details when vehicle gets parked
         public Ticket(string ticketNo, DateTime parkedTime, double cost)
         {
             _ticketNo = ticketNo;
