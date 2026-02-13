@@ -1,0 +1,481 @@
+================================================================================
+                    WEEKLY ASSIGNMENT 6 - PROJECT STRUCTURE
+                         PARKING LOT MANAGEMENT SYSTEM
+================================================================================
+
+PROJECT OVERVIEW:
+----------------
+This is a C# .NET console application project that implements a Parking Lot 
+Management System. The project is organized into 6 separate requirements 
+(sub-projects), each building upon concepts from previous ones and demonstrating 
+different C# programming concepts.
+
+The solution file "Parkinglot.sln" contains all 6 requirements as separate 
+projects that can be built and run independently.
+
+
+================================================================================
+                          SOLUTION FILE STRUCTURE
+================================================================================
+
+FILE: Parkinglot.sln
+--------------------
+PURPOSE: 
+  - This is the Visual Studio Solution file that groups all 6 requirement 
+    projects together
+  - Allows you to manage, build, and run all projects from one place
+  - Contains configuration for Debug and Release builds
+
+CONTAINS:
+  1. Requirement-1 (Basic Vehicle and Ticket classes)
+  2. Requirement-2 (ParkingLot management with CRUD operations)
+  3. Requirement-3 (Registration number validation using Regex)
+  4. Requirement-4 (Vehicle search functionality with Business Object pattern)
+  5. Requirement-5 (Sorting vehicles using IComparable and IComparer)
+  6. Requirement-6 (Vehicle type counting using SortedDictionary)
+
+
+================================================================================
+                            REQUIREMENT-1
+                    Basic Vehicle and Ticket Classes
+================================================================================
+
+OBJECTIVE: 
+  Create basic Vehicle and Ticket classes with properties, constructors, and 
+  override ToString() and Equals() methods.
+
+FILES:
+------
+
+1. Program.cs
+   PURPOSE: Entry point of the application
+   WHAT IT DOES:
+     - Takes input for 2 vehicles from the user
+     - Each vehicle input is comma-separated: 
+       RegNo,Name,Type,Weight,TicketNo,ParkedTime,Cost
+     - Creates Vehicle objects using the CreateVehicle() helper method
+     - Displays both vehicles using ToString()
+     - Compares the two vehicles using Equals() method
+     - Shows whether vehicles are same or different based on registration 
+       number and name
+
+   KEY METHODS:
+     - CreateVehicle(string input): Parses comma-separated input and creates 
+       a Vehicle object
+
+2. Vehicle.cs
+   PURPOSE: Represents a vehicle in the parking lot
+   PROPERTIES:
+     - Registration_No (string): Vehicle registration number
+     - Name (string): Vehicle owner's name
+     - Type (string): Type of vehicle (Car, Bike, Truck, etc.)
+     - Weight (double): Weight of the vehicle
+     - Ticket (Ticket): Associated parking ticket object
+
+   KEY METHODS:
+     - Constructor: Initializes all properties
+     - ToString(): Returns formatted string with vehicle details
+     - Equals(object obj): Compares two vehicles based on registration number 
+       and name (case-insensitive)
+
+3. Ticket.cs
+   PURPOSE: Represents a parking ticket
+   PROPERTIES:
+     - TicketNo (string): Unique ticket identifier
+     - ParkedTime (DateTime): When the vehicle was parked
+     - Cost (double): Parking cost
+
+   KEY METHODS:
+     - Constructor: Initializes ticket properties
+     - Default constructor: Empty constructor for flexibility
+
+
+================================================================================
+                            REQUIREMENT-2
+                    ParkingLot Management System
+================================================================================
+
+OBJECTIVE:
+  Implement a ParkingLot class that can manage multiple vehicles with Add, 
+  Remove, and Display operations.
+
+FILES:
+------
+
+1. ParkingLot.cs
+   PURPOSE: Manages a collection of vehicles in a parking lot
+   PROPERTIES:
+     - Name (string): Name of the parking lot
+     - VehicleList (List<Vehicle>): List of all parked vehicles
+
+   KEY METHODS:
+     - AddVehicleToParkingLot(Vehicle vehicle): Adds a vehicle to the list
+     - RemoveVehicleFromParkingLot(string registrationNo): Searches for and 
+       removes a vehicle by registration number, returns true if found
+     - DisplayVehicles(): Shows all vehicles in a formatted table, or displays 
+       "No vehicles to show" if empty
+
+2. Program.cs
+   PURPOSE: Interactive menu-driven application
+   WHAT IT DOES:
+     - Asks user to enter parking lot name
+     - Displays menu with 4 options:
+       1. Add Vehicle - Takes comma-separated input and adds vehicle
+       2. Delete Vehicle - Removes vehicle by registration number
+       3. Display Vehicles - Shows all parked vehicles in table format
+       4. Exit - Terminates the program
+     - Loops continuously until user chooses to exit
+     - Provides success/failure messages for each operation
+
+3. Vehicle.cs
+   PURPOSE: Enhanced Vehicle class with CreateVehicle() static method
+   NEW FEATURES:
+     - Static CreateVehicle(string input): Factory method that parses 
+       comma-separated input and returns a Vehicle object
+
+4. Ticket.cs
+   PURPOSE: Same as Requirement-1
+
+
+================================================================================
+                            REQUIREMENT-3
+                    Registration Number Validation
+================================================================================
+
+OBJECTIVE:
+  Validate vehicle registration numbers using Regular Expressions (Regex) to 
+  ensure they follow a specific format.
+
+FILES:
+------
+
+1. Program.cs
+   PURPOSE: Validates registration number format
+   WHAT IT DOES:
+     - Asks user to enter a registration number
+     - Validates it against a specific pattern using Regex
+     - Displays whether the registration number is valid or invalid
+
+   VALIDATION PATTERN:
+     Format: "XX NN XX NNNN" or "XX NN NNNN"
+     Where:
+       - XX = 2 capital letters (state code)
+       - NN = 1-2 digits (district code)
+       - XX = 1-2 capital letters (optional series)
+       - NNNN = 1-4 digits (unique number)
+     
+     Examples of VALID formats:
+       - "KA 01 AB 1234"
+       - "MH 12 5678"
+       - "TN 9 XY 123"
+     
+     Examples of INVALID formats:
+       - "ka 01 ab 1234" (lowercase)
+       - "K1 01 AB 1234" (number in state code)
+       - "KA 123 AB 1234" (too many district digits)
+
+   KEY METHODS:
+     - ValidateRegistartionNo(string registrationNo): Uses Regex pattern 
+       matching to validate format
+
+
+================================================================================
+                            REQUIREMENT-4
+                    Vehicle Search with Business Object
+================================================================================
+
+OBJECTIVE:
+  Implement search functionality to find vehicles by type or parked time using 
+  the Business Object (BO) design pattern.
+
+FILES:
+------
+
+1. Program.cs
+   PURPOSE: Search vehicles by different criteria
+   WHAT IT DOES:
+     - Asks user how many vehicles to enter
+     - Takes comma-separated input for each vehicle
+     - Presents search menu:
+       1. By type (Car, Bike, etc.)
+       2. By parked time (exact datetime match)
+     - Uses VehicleBO class to perform the search
+     - Displays matching vehicles in table format
+     - Shows "No such vehicle is present" if no matches found
+
+2. VehicleBO.cs (Business Object)
+   PURPOSE: Contains business logic for vehicle operations
+   WHY IT EXISTS:
+     - Separates business logic from presentation (Program.cs)
+     - Makes code more maintainable and testable
+     - Follows Single Responsibility Principle
+   
+   KEY METHODS:
+     - FindVehicle(List<Vehicle> vehicleList, string type): 
+       Returns all vehicles matching the specified type (case-insensitive)
+     
+     - FindVehicle(List<Vehicle> vehicleList, DateTime parkedTime): 
+       Overloaded method that returns all vehicles parked at exact time
+   
+   DESIGN PATTERN:
+     - Method Overloading: Same method name with different parameters
+     - Business Object Pattern: Encapsulates business logic
+
+3. Vehicle.cs
+   PURPOSE: Same as previous requirements with CreateVehicle() method
+
+4. Ticket.cs
+   PURPOSE: Same as previous requirements
+
+
+================================================================================
+                            REQUIREMENT-5
+                    Sorting Vehicles (IComparable & IComparer)
+================================================================================
+
+OBJECTIVE:
+  Implement sorting functionality using IComparable (for default sort by weight) 
+  and IComparer (for custom sort by parked time).
+
+FILES:
+------
+
+1. Program.cs
+   PURPOSE: Sort vehicles by different criteria
+   WHAT IT DOES:
+     - Asks user how many vehicles to enter
+     - Takes comma-separated input for each vehicle
+     - Presents sorting menu:
+       1. Sort by weight (uses default IComparable)
+       2. Sort by parked time (uses custom ParkedTimeComparer)
+     - Sorts the list based on user choice
+     - Displays sorted vehicles in table format
+
+2. ParkedTimeComparer.cs
+   PURPOSE: Custom comparer for sorting by parking time
+   IMPLEMENTS: IComparer<Vehicle> interface
+   
+   WHY IT EXISTS:
+     - Vehicle class already has default sorting (by weight)
+     - We need an alternative way to sort (by parked time)
+     - IComparer allows custom sorting without modifying Vehicle class
+   
+   KEY METHOD:
+     - Compare(Vehicle v1, Vehicle v2): Compares parking times of two vehicles
+       Returns: negative if v1 < v2, zero if equal, positive if v1 > v2
+
+3. Vehicle.cs
+   PURPOSE: Enhanced Vehicle class implementing IComparable
+   IMPLEMENTS: IComparable<Vehicle> interface
+   
+   NEW METHOD:
+     - CompareTo(Vehicle other): Compares vehicles by weight
+       This is the DEFAULT sorting behavior when you call list.Sort()
+
+4. Ticket.cs
+   PURPOSE: Same as previous requirements
+
+CONCEPTS DEMONSTRATED:
+  - IComparable<T>: Defines default sorting for a class
+  - IComparer<T>: Defines alternative custom sorting
+  - List<T>.Sort(): Can use default or custom comparer
+
+
+================================================================================
+                            REQUIREMENT-6
+                    Vehicle Type Count using SortedDictionary
+================================================================================
+
+OBJECTIVE:
+  Count how many vehicles of each type exist and display them in alphabetically 
+  sorted order using SortedDictionary.
+
+FILES:
+------
+
+1. Program.cs
+   PURPOSE: Count vehicles by type
+   WHAT IT DOES:
+     - Asks user how many vehicles to enter
+     - Takes comma-separated input for each vehicle (simplified format without 
+       ticket info)
+     - Calls Vehicle.TypeWiseCount() to get counts
+     - Displays vehicle types and their counts in alphabetical order
+
+   INPUT FORMAT (simplified):
+     RegNo,Name,Type,Weight
+     Example: "KA01AB1234,John,Car,1200.5"
+
+2. Vehicle.cs
+   PURPOSE: Simplified Vehicle class with type counting functionality
+   
+   PROPERTIES:
+     - RegistrationNo, Name, Type, Weight (no Ticket in this requirement)
+   
+   KEY METHODS:
+     - CreateVehicle(string detail): Parses simplified input format
+     
+     - TypeWiseCount(List<Vehicle> vehicleList): 
+       STATIC METHOD that counts vehicles by type
+       RETURNS: SortedDictionary<string, int>
+       
+       HOW IT WORKS:
+         1. Creates a SortedDictionary (automatically sorts keys alphabetically)
+         2. Loops through all vehicles
+         3. For each vehicle type:
+            - If type not in dictionary, add it with count 0
+            - Increment the count for that type
+         4. Returns the sorted dictionary
+       
+       Example Output:
+         Type            No. of Vehicles
+         Bike            3
+         Car             5
+         Truck           2
+
+CONCEPTS DEMONSTRATED:
+  - SortedDictionary<TKey, TValue>: Dictionary that keeps keys sorted
+  - Static methods: Can be called without creating an object
+  - Dictionary operations: ContainsKey(), indexer access
+
+
+================================================================================
+                          COMMON PATTERNS ACROSS ALL
+================================================================================
+
+1. PROGRAM.CS FILES:
+   - Always contains Main() method (entry point)
+   - Handles user input/output
+   - Coordinates between different classes
+   - Contains try-catch blocks for error handling
+
+2. VEHICLE.CS FILES:
+   - Core domain class representing a vehicle
+   - Uses private fields with public properties (encapsulation)
+   - Evolves across requirements to add new functionality
+
+3. TICKET.CS FILES:
+   - Simple data class (POCO - Plain Old CLR Object)
+   - Represents parking ticket information
+   - Used in Requirements 1, 2, 4, and 5
+
+4. ERROR HANDLING:
+   - All requirements use try-catch blocks
+   - Generic error messages to handle unexpected inputs
+   - Validation before processing data
+
+5. INPUT FORMAT:
+   - Most requirements use comma-separated values
+   - DateTime format: "dd-MM-yyyy HH:mm:ss"
+   - Example: "KA01AB1234,John,Car,1200.5,T001,15-01-2024 10:30:00,50.0"
+
+
+================================================================================
+                          C# CONCEPTS DEMONSTRATED
+================================================================================
+
+REQUIREMENT-1:
+  ✓ Classes and Objects
+  ✓ Properties (get/set)
+  ✓ Constructors
+  ✓ Method Overriding (ToString, Equals)
+  ✓ DateTime parsing
+
+REQUIREMENT-2:
+  ✓ Collections (List<T>)
+  ✓ CRUD operations (Create, Read, Update, Delete)
+  ✓ Static methods
+  ✓ String formatting
+
+REQUIREMENT-3:
+  ✓ Regular Expressions (Regex)
+  ✓ Pattern matching
+  ✓ String validation
+
+REQUIREMENT-4:
+  ✓ Business Object pattern
+  ✓ Method overloading
+  ✓ Separation of concerns
+  ✓ LINQ-like filtering logic
+
+REQUIREMENT-5:
+  ✓ IComparable<T> interface
+  ✓ IComparer<T> interface
+  ✓ Custom sorting
+  ✓ Interface implementation
+
+REQUIREMENT-6:
+  ✓ SortedDictionary<TKey, TValue>
+  ✓ Static methods
+  ✓ Dictionary operations
+  ✓ Data aggregation
+
+
+================================================================================
+                          HOW TO RUN THE PROJECT
+================================================================================
+
+OPTION 1: Using Visual Studio
+  1. Open "Parkinglot.sln" in Visual Studio
+  2. In Solution Explorer, right-click on the requirement you want to run
+  3. Select "Set as Startup Project"
+  4. Press F5 or click "Start" to run
+  5. Follow the console prompts
+
+OPTION 2: Using Command Line
+  1. Navigate to the specific requirement folder
+     Example: cd "Requirement-1"
+  2. Build the project:
+     dotnet build
+  3. Run the project:
+     dotnet run
+  4. Follow the console prompts
+
+OPTION 3: Using Visual Studio Code
+  1. Open the Weekly-Assignment-6 folder
+  2. Open terminal in VS Code
+  3. Navigate to requirement folder: cd Requirement-1
+  4. Run: dotnet run
+
+
+================================================================================
+                          PROJECT DEPENDENCIES
+================================================================================
+
+Each requirement builds upon concepts from previous ones:
+
+Requirement-1 (Foundation)
+    ↓
+Requirement-2 (Adds ParkingLot management)
+    ↓
+Requirement-3 (Adds validation) ← Independent
+    ↓
+Requirement-4 (Adds search with BO pattern)
+    ↓
+Requirement-5 (Adds sorting capabilities)
+    ↓
+Requirement-6 (Adds aggregation/counting) ← Simplified version
+
+
+================================================================================
+                          SUMMARY
+================================================================================
+
+This project demonstrates a progressive learning path in C# programming:
+
+1. Start with basic OOP (classes, properties, methods)
+2. Add collection management (List operations)
+3. Introduce validation (Regex patterns)
+4. Apply design patterns (Business Object)
+5. Implement interfaces (IComparable, IComparer)
+6. Use advanced collections (SortedDictionary)
+
+Each requirement is a standalone console application that can be run 
+independently, making it easy to understand and test individual concepts.
+
+The parking lot domain provides a practical, real-world context for learning 
+these programming concepts.
+
+================================================================================
+                          END OF DOCUMENTATION
+================================================================================
