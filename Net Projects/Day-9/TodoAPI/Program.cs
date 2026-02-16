@@ -1,5 +1,8 @@
 
-namespace UserAPI
+using Microsoft.EntityFrameworkCore;
+using TodoApi.Models;
+
+namespace TodoAPI
 {
     public class Program
     {
@@ -11,6 +14,10 @@ namespace UserAPI
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            builder.Services.AddDbContext<TodoContext>(opt =>
+    opt.UseInMemoryDatabase("TodoList"));
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

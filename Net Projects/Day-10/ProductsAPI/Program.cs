@@ -1,5 +1,6 @@
-
-namespace toDo
+using Microsoft.EntityFrameworkCore;
+using ProductsAPI.Models;
+namespace ProductsAPI
 {
     public class Program
     {
@@ -10,6 +11,8 @@ namespace toDo
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<ProductContext>(opt =>
+    opt.UseInMemoryDatabase("ProductList"));
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
