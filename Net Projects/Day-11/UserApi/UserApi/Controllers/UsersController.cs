@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using UserApi.Data;
 using UserApi.DTOs;
 using UserApi.Models;
+using System;
+using System.Linq;
 
 namespace UserApi.Controllers
 {
@@ -17,37 +18,51 @@ namespace UserApi.Controllers
             _context = context;
         }
 
-        // REGISTER
+        // POST: api/users/register
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserDto dto)
+        public IActionResult Register(UserDto userDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var existingUser = _context.Users
+                .FirstOrDefault(u => u.Email == userDto.Email);
+
+            if (existingUser != null)
+                return BadRequest("User already exists");
+
             var user = new User
             {
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                Email = dto.Email,
-                Password = dto.Password
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                Email = userDto.Email,
+                Password = userDto.Password,
+                Active = true,
+                CreatedAt = DateTime.Now
             };
 
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
-            return Ok("Registeration Success");
+            return Ok("User registered successfully");
         }
 
-        // LOGIN
+        // POST: api/users/login
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginDto dto)
+        public IActionResult Login(LoginDto dto)
         {
-            var user = await _context.Users
-                .FirstOrDefaultAsync(x =>
-                    x.Email == dto.Email &&
-                    x.Password == dto.Password);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            if (user == null)
-                return Unauthorized("Invalid Credentials");
+            var validUser = _context.Users
+                .FirstOrDefault(u => u.Email == dto.Email
+                                  && u.Password == dto.Password);
 
-            return Ok("Login Successful");
+            if (validUser == null)
+                return Unauthorized("Invalid email or password");
+
+            return Ok("Login successful");
         }
+
     }
 }

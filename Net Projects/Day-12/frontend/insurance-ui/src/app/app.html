@@ -1,0 +1,57 @@
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>Insurance</h2>
+
+    <button (click)="active='list'"> Data</button>
+    <button (click)="active='add'">+ Post Data</button>
+    <button (click)="active='delete'">Delete</button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- LIST -->
+    @if (active === 'list') {
+      <h2>Available Policies</h2>
+
+      <ul>
+        @for (p of policies(); track p.id) {
+          <li>
+            <b>{{ p.policyName }}</b> - {{ p.provider }}
+            | ₹{{ p.premium }}
+          </li>
+        }
+      </ul>
+    }
+
+    <!-- ADD FORM -->
+    @if (active === 'add') {
+      <h2>Add Policy</h2>
+
+      <input placeholder="Policy Name" [(ngModel)]="form.policyName">
+      <input placeholder="Provider" [(ngModel)]="form.provider">
+      <input type="number" placeholder="Premium" [(ngModel)]="form.premium">
+      <input type="number" placeholder="Coverage" [(ngModel)]="form.coverageAmount">
+
+      <button (click)="add()">Save</button>
+    }
+
+    <!-- DELETE -->
+    @if (active === 'delete') {
+      <h2>Delete Policies</h2>
+
+      <ul>
+        @for (p of policies(); track p.id) {
+          <li>
+            {{ p.policyName }}
+            <button class="danger" (click)="delete(p.id!)">Delete</button>
+          </li>
+        }
+      </ul>
+    }
+
+  </div>
+
+</div>
