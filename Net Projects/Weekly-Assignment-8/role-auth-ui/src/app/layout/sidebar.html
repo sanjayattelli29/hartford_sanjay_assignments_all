@@ -1,0 +1,128 @@
+<div class="flex h-screen bg-gray-50">
+    <aside class="w-64 bg-gradient-to-b from-blue-900 to-blue-800 text-white flex flex-col shadow-xl">
+        <div class="p-6 border-b border-blue-700">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-green-400 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-base leading-tight">InsureApp</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-6 py-4 border-b border-blue-700">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-full bg-green-400 flex items-center justify-center text-blue-900 font-bold text-sm">
+                    {{ userName.charAt(0).toUpperCase() }}
+                </div>
+                <div class="overflow-hidden">
+                    <p class="font-semibold text-sm truncate">{{ userName }}</p>
+                    <span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">{{ role }}</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 py-4 space-y-1">
+            @if (role === 'Admin') {
+            <a routerLink="/admin" [queryParams]="{tab:'list'}"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Dashboard
+            </a>
+            <a routerLink="/admin" [queryParams]="{tab:'add'}"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Policies
+            </a>
+            <a routerLink="/admin" [queryParams]="{tab:'edit'}"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                Edit Policies
+            </a>
+            <a routerLink="/admin" [queryParams]="{tab:'users'}"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                Users
+            </a>
+            }
+            @if (role === 'Agent') {
+            <a routerLink="/agent"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Dashboard
+            </a>
+            <a routerLink="/agent"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Policies
+            </a>
+            }
+            @if (role === 'Customer') {
+            <a routerLink="/customer"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Dashboard
+            </a>
+            <a routerLink="/customer"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Policies
+            </a>
+            }
+
+            <a routerLink="/profile"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-100 hover:bg-blue-700 hover:text-white transition-colors text-sm font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                Profile
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-blue-700">
+            <button (click)="logout()"
+                class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-300 hover:bg-red-900/40 hover:text-red-200 transition-colors text-sm font-medium cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Logout
+            </button>
+        </div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto">
+        <ng-content></ng-content>
+    </main>
+</div>

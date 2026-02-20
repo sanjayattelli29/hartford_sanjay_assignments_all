@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ CORS FIX (Angular localhost support)
+// CORS FIX (Angular localhost support)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular",
@@ -33,7 +33,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// ✅ ORDER MATTERS
+// ORDER MATTERS
 app.UseHttpsRedirection();   // good practice
 app.UseCors("AllowAngular"); // enable CORS here
 
