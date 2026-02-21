@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Chat</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #222;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .chat-box {
+            width: 400px;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .messages {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        
+        .user {
+            text-align: right;
+            color: lightgreen;
+            margin: 5px 0;
+        }
+        
+        .bot {
+            text-align: left;
+            color: lightblue;
+            margin: 5px 0;
+        }
+        
+        input {
+            width: 70%;
+            padding: 8px;
+        }
+        
+        button {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chat-box">
+        <div class="messages" id="messages"></div>
+
+        <input type="text" id="question" placeholder="Ask something..." />
+        <button onclick="sendQuestion()">Send</button>
+    </div>
+
+    <script>
+        function sendQuestion() {
+            const questionInput = document.getElementById("question");
+            const question = questionInput.value;
+            const messages = document.getElementById("messages");
+
+            messages.innerHTML += `<div class="user">${question}</div>`;
+            questionInput.value = "";
+
+            fetch("https://sanjay29.app.n8n.cloud/webhook-test/chatbot-agent-1", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        question
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    messages.innerHTML += `<div class="bot">${data.answer}</div>`;
+                    messages.scrollTop = messages.scrollHeight;
+                });
+        }
+    </script>
+
+</body>
+
+</html>
